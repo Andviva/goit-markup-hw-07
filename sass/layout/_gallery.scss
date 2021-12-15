@@ -9,10 +9,12 @@
 }
 .gallery-item {
   margin-right: 8px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
-.gallery-item:last-child {
-  margin-right: 0;
-}
+
 .gallery-button {
   padding: 6px 22px;
   border-radius: 4px;
@@ -32,16 +34,17 @@
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.gallery-button:hover,
-.gallery-button:focus {
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
-    0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
 
-  background-color: var(--accent-text-color);
-  color: var(--second-text-color);
+  &:hover,
+  &:focus {
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+      0px 2px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    background-color: var(--accent-text-color);
+    color: var(--second-text-color);
+  }
 }
+
 .gallery-cards {
   display: flex;
   flex-wrap: wrap;
@@ -51,28 +54,26 @@
   height: 404px;
   margin-right: 30px;
   margin-bottom: 30px;
-}
-.gallery-cards-item:nth-child(3n) {
-  margin-right: 0;
-}
-.gallery-cards-item:nth-last-child(-n + 3) {
-  margin-bottom: 0;
-}
 
-.gallery-cards-item:hover .gallery-card-text {
-  transform: translateY(0);
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  &:nth-last-child(-n + 3) {
+    margin-bottom: 0;
+  }
 }
 
 .gallery-link {
   display: block;
 
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.gallery-link:hover,
-.gallery-link:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
 }
 
 .gallery-wrap {
@@ -101,6 +102,10 @@
 
   transform: translateY(101%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  .gallery-cards-item:hover & {
+    transform: translateY(0);
+  }
 }
 
 .border-crd {
